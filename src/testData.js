@@ -21,6 +21,26 @@ export const decks = [
     id: 3,
     name: "Languages",
   },
+  {
+    id: 4,
+    name: "History",
+  },
+  {
+    id: 5,
+    name: "Art",
+  },
+  {
+    id: 6,
+    name: "Music",
+  },
+  {
+    id: 7,
+    name: "Sports",
+  },
+  {
+    id: 8,
+    name: "Technology",
+  },
 ]
 
 export const flashcards = [
@@ -59,6 +79,30 @@ export const flashcards = [
     deck_id: decks[2].id,
     front: "French for 'Goodbye'",
     back: "Au revoir",
+  },
+  {
+    id: 6,
+    deck_id: decks[3].id,
+    front: "Historical event in 1776",
+    back: "Declaration of Independence",
+  },
+  {
+    id: 7,
+    deck_id: decks[4].id,
+    front: "Famous painting by Leonardo da Vinci",
+    back: "Mona Lisa",
+  },
+  {
+    id: 8,
+    deck_id: decks[5].id,
+    front: "Musical instrument with black and white keys",
+    back: "Piano",
+  },
+  {
+    id: 9,
+    deck_id: decks[6].id,
+    front: "Popular sport with a round ball and goals",
+    back: "Soccer",
   },
 ]
 
