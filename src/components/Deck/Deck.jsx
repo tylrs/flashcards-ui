@@ -4,7 +4,7 @@ const Deck = ({ deckData }) => {
   const { name } = deckData
 
   return (
-    <div>
+    <div className="border border-solid border-black text-center">
       <p>{name}</p>
     </div>
   )

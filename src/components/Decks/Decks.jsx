@@ -22,7 +22,7 @@ const Decks = () => {
   const Decks = decksData.map((deckData => <Deck key={deckData.id} deckData={deckData} />))
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-4 mt-4">
       {Decks}
     </div>
   )
