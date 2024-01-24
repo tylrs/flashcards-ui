@@ -1,12 +1,13 @@
 import React from "react";
-import Flashcards from "../components/flashcards/Flashcards";
 import Header from "../components/header/Header";
+import Decks from "../components/Decks/Decks";
 
 const Homepage = () => {
   return (
     <>
       <Header />
-      <Flashcards />
+      <Decks />
+      {/* <Flashcards /> */}
     </>
   )
 }
