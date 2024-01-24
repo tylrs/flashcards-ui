@@ -1,12 +1,12 @@
-export const mockAPI = async dataRequested => {
+export const mockAPI = async (dataRequested) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(APIIndex[dataRequested]);
-    }, 1000);
-  });
+      resolve(APIIndex[dataRequested])
+    }, 1000)
+  })
 
-  return promise;
-};
+  return promise
+}
 
 export const decks = [
   {
@@ -21,7 +21,7 @@ export const decks = [
     id: 3,
     name: "Languages",
   },
-];
+]
 
 export const flashcards = [
   {
@@ -60,9 +60,9 @@ export const flashcards = [
     front: "French for 'Goodbye'",
     back: "Au revoir",
   },
-];
+]
 
 const APIIndex = {
   decks,
   flashcards,
-};
+}

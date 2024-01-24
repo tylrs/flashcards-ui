@@ -3,12 +3,14 @@ import Flashcard from "../flashcard/FlashCard"
 import { mockAPI } from "../../testData"
 
 const Flashcards = () => {
-  const [flashcardsData, setFlashcardsData] = useState([{
-    id: 0,
-    folder_id: 0,
-    front: "",
-    back: "4",
-  }])
+  const [flashcardsData, setFlashcardsData] = useState([
+    {
+      id: 0,
+      folder_id: 0,
+      front: "",
+      back: "4",
+    },
+  ])
 
   const getFlashcards = async () => {
     const data = await mockAPI("flashcards")
@@ -21,13 +23,11 @@ const Flashcards = () => {
     getFlashcards()
   }, [])
 
-  const flashcards = flashcardsData.map((cardData => <Flashcard key={cardData.id} cardData={cardData} />))
+  const flashcards = flashcardsData.map((cardData) => (
+    <Flashcard key={cardData.id} cardData={cardData} />
+  ))
 
-  return (
-    <div>
-      {flashcards}
-    </div>
-  )
+  return <div>{flashcards}</div>
 }
 
 export default Flashcards
