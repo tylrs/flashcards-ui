@@ -7,10 +7,10 @@ const Deckpage = () => {
   let { id } = useParams()
 
   return (
-    <>
+    <div className="px-8 pt-10">
       <Header />
       <Flashcards deck_id={id} />
-    </>
+    </div>
   )
 }
 

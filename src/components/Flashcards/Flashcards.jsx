@@ -27,7 +27,7 @@ const Flashcards = ({ deck_id }) => {
     <Flashcard key={cardData.id} cardData={cardData} />
   ))
 
-  return <div>{flashcards}</div>
+  return <div className="grid grid-cols-3 gap-4 pt-8">{flashcards}</div>
 }
 
 export default Flashcards

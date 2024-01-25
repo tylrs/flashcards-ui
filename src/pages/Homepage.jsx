@@ -4,10 +4,10 @@ import Decks from "../components/Decks/Decks"
 
 const Homepage = () => {
   return (
-    <>
+    <div className="px-8">
       <Header />
       <Decks />
-    </>
+    </div>
   )
 }
 
