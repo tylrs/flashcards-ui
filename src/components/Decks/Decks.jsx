@@ -12,7 +12,6 @@ const Decks = () => {
 
   const getDecks = async () => {
     const data = await mockAPI("allDecks")
-    // const data = await response.json()
 
     setDecksData(data)
   }

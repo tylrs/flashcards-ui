@@ -4,8 +4,8 @@ import Decks from "../components/Decks/Decks"
 
 const Homepage = () => {
   return (
-    <div className="px-8">
-      <Header />
+    <div className="px-8 pt-10">
+      <Header title={"Flashcards"} />
       <Decks />
     </div>
   )
