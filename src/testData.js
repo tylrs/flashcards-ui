@@ -1,7 +1,7 @@
-export const mockAPI = async (dataRequested) => {
+export const mockAPI = async (dataRequested, args) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(APIIndex[dataRequested])
+      resolve(APIIndex[dataRequested](args))
     }, 1000)
   })
 
@@ -106,7 +106,16 @@ export const flashcards = [
   },
 ]
 
+const filterFlashcards = ({ deck_id }) => {
+  return flashcards.filter((card) => card.deck_id.toString() === deck_id)
+}
+
+const allFlashCards = () => flashcards
+
+const allDecks = () => decks
+
 const APIIndex = {
-  decks,
-  flashcards,
+  filterFlashcards,
+  allFlashCards,
+  allDecks,
 }
