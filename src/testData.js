@@ -110,6 +110,10 @@ const filterFlashcards = ({ deck_id }) => {
   return flashcards.filter((card) => card.deck_id.toString() === deck_id)
 }
 
+const getDeckById = ({ deck_id }) => {
+  return decks.find((deck) => deck.id.toString() === deck_id)
+}
+
 const allFlashCards = () => flashcards
 
 const allDecks = () => decks
@@ -118,4 +122,5 @@ const APIIndex = {
   filterFlashcards,
   allFlashCards,
   allDecks,
+  getDeckById,
 }
