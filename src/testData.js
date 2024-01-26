@@ -114,6 +114,13 @@ const getDeckById = ({ deck_id }) => {
   return decks.find((deck) => deck.id.toString() === deck_id)
 }
 
+const submitNewDeck = ({ deck_name }) => {
+  const newDeck = { id: decks[decks.length - 1].id + 1, name: deck_name }
+  decks.push(newDeck)
+
+  return decks
+}
+
 const allFlashCards = () => flashcards
 
 const allDecks = () => decks
@@ -123,4 +130,5 @@ const APIIndex = {
   allFlashCards,
   allDecks,
   getDeckById,
+  submitNewDeck,
 }

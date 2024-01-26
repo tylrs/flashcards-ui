@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Deck from "../Deck/Deck"
 import { mockAPI } from "../../testData"
+import NewDeckForm from "../NewDeckForm/NewDeckForm"
 
 const Decks = () => {
   const [decksData, setDecksData] = useState([
@@ -24,7 +25,10 @@ const Decks = () => {
     <Deck key={deckData.id} deckData={deckData} />
   ))
 
-  return <div className="grid grid-cols-3 gap-4 mt-4">{Decks}</div>
+  return <div className="grid grid-cols-3 gap-4 mt-4">
+    {Decks}
+    <NewDeckForm setDecksData={setDecksData} />
+  </div>
 }
 
 export default Decks
