@@ -121,6 +121,19 @@ const submitNewDeck = ({ deck_name }) => {
   return decks
 }
 
+const submitNewCard = ({ deck_id, front, back }) => {
+  const newCard = {
+    deck_id,
+    front,
+    back,
+  }
+
+  const updatedFlashcards = [...flashcards, newCard]
+  flashcards = updatedFlashcards
+
+  return updatedFlashcards
+}
+
 const deleteDeckById = ({ deck_id }) => {
   //would also have to do cascading delete maybe?
   return decks.filter((deck) => deck.id !== deck_id)
@@ -136,5 +149,6 @@ const APIIndex = {
   allDecks,
   getDeckById,
   submitNewDeck,
+  submitNewCard,
   deleteDeckById,
 }
