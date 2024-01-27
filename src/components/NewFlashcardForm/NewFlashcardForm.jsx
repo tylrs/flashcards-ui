@@ -16,7 +16,9 @@ const NewFlashcardForm = ({ deck_id, setFlashcardsData }) => {
     )
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
     const data = await mockAPI("submitNewCard", { deck_id, ...formData })
 
     setFlashcardsData(data)

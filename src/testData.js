@@ -123,15 +123,13 @@ const submitNewDeck = ({ deck_name }) => {
 
 const submitNewCard = ({ deck_id, front, back }) => {
   const newCard = {
-    deck_id,
+    deck_id: parseInt(deck_id),
     front,
     back,
   }
+  flashcards.push(newCard)
 
-  const updatedFlashcards = [...flashcards, newCard]
-  flashcards = updatedFlashcards
-
-  return updatedFlashcards
+  return filterFlashcards({ deck_id })
 }
 
 const deleteDeckById = ({ deck_id }) => {
