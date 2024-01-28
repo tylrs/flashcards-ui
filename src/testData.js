@@ -1,3 +1,5 @@
+import { Resources } from "./constants"
+
 export const mockAPI = async (dataRequested, args) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -111,7 +113,7 @@ const filterFlashcards = ({ deck_id }) => {
 }
 
 const getDeckById = ({ deck_id }) => {
-  return decks.find((deck) => deck.id.toString() === deck_id)
+  return decks.find((deck) => deck.id === deck_id)
 }
 
 const submitNewDeck = ({ deck_name }) => {
@@ -149,4 +151,53 @@ const APIIndex = {
   submitNewDeck,
   submitNewCard,
   deleteDeckById,
+}
+
+const requests = {
+  filterFlashcardsbyDeckId: {
+    resourceName: Resources.Flashcards,
+    operation: (flashcards, params) => {
+      return flashcards.filter((flashcard) => flashcard.deck_id === params.id)
+    },
+  },
+  allDecks: {
+    resourceName: Resources.Decks,
+  },
+}
+
+export const getData = async (requestType, params) => {
+  //temporary implementation until real API is used
+
+  const { resourceName, operation } = requests[requestType]
+  const lsItem = localStorage.getItem(resourceName)
+  let data = JSON.parse(lsItem)
+
+  if (operation) {
+    data = operation(data, params)
+  }
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data)
+    }, 1000)
+  })
+
+  return promise
+}
+
+const seeds = {
+  decks,
+  flashcards,
+}
+
+export const seedData = () => {
+  Object.keys(seeds).forEach((seedName) => {
+    const lsItem = localStorage.getItem(seedName)
+    if (lsItem === null) {
+      console.log("ITEM DOES NOT EXIT...SETTING")
+      localStorage.setItem(seedName, JSON.stringify(seeds[seedName]))
+    } else {
+      console.log("ITEM ALREADY EXISTS IN LS", lsItem)
+    }
+  })
 }

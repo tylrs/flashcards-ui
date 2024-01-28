@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Homepage from "./pages/Homepage"
 import Deckpage from "./pages/Deckpage"
+import { seedData } from "./testData";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+
+  useEffect(() => {
+    seedData()
+  }, [])
+
   return (
     <RouterProvider router={router} />
   )

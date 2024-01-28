@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import Flashcard from "../flashcard/FlashCard"
-import { mockAPI } from "../../testData"
+import { getData } from "../../testData"
 import NewFlashcardForm from "../NewFlashcardForm/NewFlashcardForm"
+import { RequestTypes } from "../../constants"
 
 const Flashcards = ({ deck_id }) => {
   const [flashcardsData, setFlashcardsData] = useState([
@@ -14,7 +15,7 @@ const Flashcards = ({ deck_id }) => {
   ])
 
   const getFlashcards = async () => {
-    const data = await mockAPI("filterFlashcards", { deck_id })
+    const data = await getData(RequestTypes.FilterFlashcardsByDeckId, { id: deck_id })
 
     setFlashcardsData(data)
   }

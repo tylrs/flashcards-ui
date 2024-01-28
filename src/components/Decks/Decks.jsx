@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import Deck from "../Deck/Deck"
-import { mockAPI } from "../../testData"
+import { getData } from "../../testData"
 import NewDeckForm from "../NewDeckForm/NewDeckForm"
+import { RequestTypes } from "../../constants"
 
 const Decks = () => {
   const [decksData, setDecksData] = useState([
@@ -12,7 +13,7 @@ const Decks = () => {
   ])
 
   const getDecks = async () => {
-    const data = await mockAPI("allDecks")
+    const data = await getData(RequestTypes.AllDecks)
 
     setDecksData(data)
   }

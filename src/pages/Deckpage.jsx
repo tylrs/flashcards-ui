@@ -11,9 +11,10 @@ const Deckpage = () => {
   })
 
   let { id } = useParams()
+  const deck_id = parseInt(id)
 
   const getDeckData = async () => {
-    const data = await mockAPI("getDeckById", { deck_id: id })
+    const data = await mockAPI("getDeckById", { deck_id: deck_id })
     setDeck(data)
   }
 
@@ -24,7 +25,7 @@ const Deckpage = () => {
   return (
     <div className="px-8 pt-10">
       <Header title={deck.name} />
-      <Flashcards deck_id={id} />
+      <Flashcards deck_id={deck_id} />
     </div>
   )
 }
